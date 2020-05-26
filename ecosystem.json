@@ -1,10 +1,8 @@
 {
     "apps": [
       {
-        //应用名称
         "name": "test",
-        //执行文件的路径
-        "script": "./build/server/static/js/server.js",
+        "script": "src/server.js",
         "env": {
           "COMMON_VARIABLE": "true"
         },
@@ -15,22 +13,14 @@
     ],
     "deploy": {
       "production": {
-        //服务器用户
-        "user": "xxx",
-        //服务器地址
-        "host": ["xxx"],
-        //服务器端口
-        "port": "xxx",
+        "user": "root",
+        "host": "132.232.31.209",
         "ref": "origin/master",
-        //这里填你的项目git ssh
-        "repo": "xxx",
-        //服务器的存放项目路径
-        "path": "/www/chat/production",
+        "repo": "https://github.com/yuanhl1994/react-ssr.git",
+        "path": "/var/react-ssr",
         "ssh_options": "StrictHostKeyChecking=no",
-        //钩子
         "post-deploy": "npm --registry https://registry.npm.taobao.org install && npm run build && pm2 startOrRestart ecosystem.json --env production",
         "env": {
-          //环境
           "NODE_ENV": "production"
         }
       }
